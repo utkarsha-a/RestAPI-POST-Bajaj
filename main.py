@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import re
-from magnum import Magnum
+from mangum import Mangum  # fix typo here
 
 app = FastAPI()
-handler = Mangum(app)
+handler = Mangum(app)  # ASGI handler for Vercel serverless
 
 class InputData(BaseModel):
     data: list
@@ -18,7 +18,6 @@ def bfhl_endpoint(payload: InputData):
     roll_number = "ABCD123"
 
     arr = payload.data
-
     odd_numbers = []
     even_numbers = []
     alphabets = []
