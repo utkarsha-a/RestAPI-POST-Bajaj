@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import re
+from magnum import Magnum
 
 app = FastAPI()
+handler = Mangum(app)
 
 class InputData(BaseModel):
     data: list
